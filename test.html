@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shortpoint Test</title>
+    <style>
+      :root {
+        --color: #526e36;
+        --border: #97b572;
+        --bg-1: #a4d461;
+        --bg-2: #aee16c;
+      }
+      html {
+        font-family: sans-serif;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .progress {
+        position: relative;
+        background-color: #ebebeb;
+        height: 26px;
+        width: 600px;
+        border-radius: 12px;
+      }
+      .progress > .inner {
+        height: 24px;
+        border-radius: 12px;
+        padding-right: 8px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        font-weight: 600;
+        line-height: 1;
+        box-shadow: 1px 1px 2px #0004;
+        width: 50%;
+        border-width: 1px;
+        border-style: solid;
+        transition: width 0.4s;
+
+        border-color: var(--border);
+        background-image: linear-gradient(#fff8, #0004),
+          repeating-linear-gradient(
+            -45deg,
+            var(--bg-1) 0px,
+            var(--bg-1) 3px,
+            var(--bg-2) 3px,
+            var(--bg-2) 6px
+          );
+        color: var(--color);
+      }
+
+      .progress-success > .inner {
+        --color: #526e36;
+        --border: #97b572;
+        --bg-1: #a4d461;
+        --bg-2: #aee16c;
+      }
+
+      .progress-error > .inner {
+        --color: #7c3431;
+        --border: #a14039;
+        --bg-1: #f76e5f;
+        --bg-2: #ff907f;
+      }
+
+      .progress-default > .inner {
+        --color: #656565;
+        --border: #bdbdbd;
+        --bg-1: #fefefe;
+        --bg-2: #fefefe;
+      }
+
+      .progress-info > .inner {
+        --color: #37627e;
+        --border: #5c7784;
+        --bg-1: #84c6f0;
+        --bg-2: #96cef2;
+      }
+
+      .progress-warn > .inner {
+        --color: #796321;
+        --border: #c7ae69;
+        --bg-1: #fdd157;
+        --bg-2: #ffd97e;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="progress progress-success">
+      <div class="inner">50%</div>
+    </div>
+
+    <div class="progress progress-error" style="margin-top: 24px">
+      <div class="inner">50%</div>
+    </div>
+
+    <div class="progress progress-default" style="margin-top: 24px">
+      <div class="inner">50%</div>
+    </div>
+
+    <div class="progress progress-info" style="margin-top: 24px">
+      <div class="inner">50%</div>
+    </div>
+
+    <div class="progress progress-warn" style="margin-top: 24px">
+      <div class="inner">50%</div>
+    </div>
+    <button onclick="fill()" style="margin-top: 24px">fill</button>
+    <script>
+      const fill = () => {
+        document.querySelectorAll('.inner').forEach(el => {
+          el.style.width = '100%';
+          el.textContent = '100%';
+        });
+      };
+    </script>
+  </body>
+</html>
